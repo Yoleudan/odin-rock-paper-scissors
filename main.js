@@ -17,5 +17,8 @@ function convertInt(){
 
 let computerInt = getRandomInt(3)
 
-let computerChoice = convertInt()
-console.log(computerChoice)
+let getComputerChoice = convertInt()
+console.log(getComputerChoice)
+
+let getPlayerChoice = prompt("Would you like to choose rock, paper or scissors?")
+console.log(getPlayerChoice.toLowerCase())
