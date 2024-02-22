@@ -14,11 +14,23 @@ function convertInt(){
         return "scissors"
     }
 }
+ function playRound(playerSelection, computerSelection){
+    if (playerSelection === "rock" && computerSelection === "scissors" ||playerSelection === "paper" && computerSelection === "rock"
+    ||playerSelection==="scissors" && computerSelection === "paper"){
+        console.log("winner is player")
+    }
+    else{
+        console.log("computer is the winner")
+    }
+ }
+
 
 let computerInt = getRandomInt(3)
 
-let getComputerChoice = convertInt()
-console.log(getComputerChoice)
+let computerChoice = convertInt()
+console.log(computerChoice)
 
-let getPlayerChoice = prompt("Would you like to choose rock, paper or scissors?")
-console.log(getPlayerChoice.toLowerCase())
+let playerChoice = prompt("Would you like to choose rock, paper or scissors?")
+console.log(playerChoice.toLowerCase())
+
+playRound(playerChoice.toLowerCase(), computerChoice)
