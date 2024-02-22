@@ -19,6 +19,9 @@ function convertInt(){
     ||playerSelection==="scissors" && computerSelection === "paper"){
         console.log("winner is player")
     }
+    else if (playerSelection === computerSelection){
+        console.log("Tie!")
+    }
     else{
         console.log("computer is the winner")
     }
