@@ -58,9 +58,24 @@ function getMatchWinner(){
         alert("its a tie")
     }
 }
+ let result = document.querySelector('#results')
 
+ let rock = document.querySelector('#rock')
+ rock.addEventListener('click', function(){
+    getRoundWinner("rock", getComputerSelection(3))
+ });
 
-function playGame(){
+ let paper = document.querySelector('#paper')
+ paper.addEventListener('click', function(){
+    getRoundWinner("paper", getComputerSelection(3))
+ });
+
+ let scissors = document.querySelector('#scissors')
+ scissors.addEventListener('click', function(){
+    getRoundWinner("scissors", getComputerSelection(3))
+ });
+
+/*function playGame(){
     playRound()
     playRound()
     playRound()
@@ -68,8 +83,8 @@ function playGame(){
     playRound()
     getMatchWinner()
 
-}
+}*/
 let playerScore = 0
 let computerScore = 0
 
-playGame();
+//playGasme();
