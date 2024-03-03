@@ -1,3 +1,6 @@
+let playerScore = 0
+let computerScore = 0
+
 function getComputerSelection(max){
     let randomNumber = Math.floor(Math.random()*max)
     if (randomNumber === 0){
@@ -21,21 +24,30 @@ function getRoundWinner(playerSelection, computerSelection){
     if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock"||
     playerSelection==="scissors" && computerSelection === "paper"){
-        console.log("player wins")
-        console.log("Player Score:" + ++playerScore)
-        console.log("Computer Score:"+ computerScore)
+        //console.log("player wins")//
+        roundWin.textContent=('Player Wins!')
+        scores.textContent=('Player:'+ ++playerScore + ' Computer:' + computerScore)
+        getMatchWinner();
+        //console.log("Player Score:" + ++playerScore)
+        //console.log("Computer Score:"+ computerScore)
     }
     else if (playerSelection === computerSelection){
-        console.log("Tie!")
-        console.log("Player Score:" + playerScore)
-        console.log("Computer Score:" + computerScore)
+        //console.log("Tie!")//
+        roundWin.textContent=('Tie!')
+        scores.textContent=('Player' + playerScore + ' Computer' + computerScore)
+        getMatchWinner();
+        //console.log("Player Score:" + playerScore)
+        //console.log("Computer Score:" + computerScore)
     }
     else if (computerSelection === "rock" && playerSelection === "scissors"||
     computerSelection === "scissors" && playerSelection === "paper"||
     computerSelection === "paper" && playerSelection === "rock"){
-        console.log("computer wins")
-        console.log("Player Score:" + playerScore)
-        console.log("Computer Score:" + ++computerScore)
+        //console.log("computer wins")//
+        roundWin.textContent=('Computer Wins!')
+        scores.textContent=('Player:'+ playerScore + ' Computer' + ++computerScore)
+        getMatchWinner();
+        //console.log("Player Score:" + playerScore)
+        //console.log("Computer Score:" + ++computerScore)
     }
 }
 
@@ -48,21 +60,37 @@ function playRound(){
 }
 
 function getMatchWinner(){
-    if (playerScore > computerScore){
-        alert("Player Wins")
+    if (playerScore >= 5){
+        alert('You Won!')
+        playerScore = 0
+        computerScore = 0;
     }
-    else if (computerScore > playerScore){
-        alert("Computer Wins")
-    }
-    else{
-        alert("its a tie")
+    else if (computerScore >= 5){
+        alert('You Lost!')
+        playerScore = 0
+        computerScore = 0;
     }
 }
- let result = document.querySelector('#results')
+
+ const result = document.querySelector('#results')
+ const roundWin = document.createElement('p')
+ roundWin.classList.add('roundWin')
+ roundWin.textContent=('')
+ result.appendChild(roundWin)
+
+ const scores = document.createElement('p')
+ scores.classList.add('scores')
+ scores.textContent=('')
+ result.appendChild(scores);
+
+ const matchWin = document.createElement('h1')
+ matchWin.classList.add('matchWin')
+ matchWin.textContent=('')
+ result.appendChild(matchWin)
 
  let rock = document.querySelector('#rock')
  rock.addEventListener('click', function(){
-    getRoundWinner("rock", getComputerSelection(3))
+    getRoundWinner("rock", getComputerSelection(3));
  });
 
  let paper = document.querySelector('#paper')
@@ -84,7 +112,6 @@ function getMatchWinner(){
     getMatchWinner()
 
 }*/
-let playerScore = 0
-let computerScore = 0
+
 
 //playGasme();
